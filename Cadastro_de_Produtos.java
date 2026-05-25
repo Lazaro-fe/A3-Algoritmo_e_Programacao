@@ -10,11 +10,14 @@ public class Cadastro_de_Produtos {
         // Será armazenado nessa variável a quantidade de produtos cadastrados
         int quantidade_de_produtos_do_mercadinho = 0;
 
-        // Utlizando vetores para armazenar a quantidade de produtos cadastrados
+        // Utlizando vetores para armazenar o nome de produtos cadastrados
         String[] nome_dos_produtos = new String[armazenamento_do_mercado_do_seu_ze];
+        // Utilizando vetores para armazenar a quantidade de produtos em estoque no vetor
         int[] quantidade_em_estoque = new int[armazenamento_do_mercado_do_seu_ze];
+        // Utilizando vetores para armazenar os precos dos produtos digitados
         double[] preco_dos_produtos = new double[armazenamento_do_mercado_do_seu_ze];
 
+        // 
         int opcao_menu_mercadinho;
 
         while (true) {
