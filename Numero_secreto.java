@@ -7,9 +7,6 @@ public class Numero_secreto {
         Scanner sc = new Scanner(System.in);
         Random randomizer = new Random();
 
-        // Substitui o True de forma direta por uma váriavel de controle
-        // Utiliza-se o boolean como um interrupitor
-        // Pois o break do Java tem uma limitação, onde quando se usa o switch-case o break sairá apenas do case
         boolean rodando_jogo = true;
 
         while (rodando_jogo) {
@@ -38,23 +35,14 @@ public class Numero_secreto {
                             palpite_de_numero_sorteado = sc.nextInt();
                             tentativas++;
 
-                            int comparacao_entre_numeros = Integer.compare(palpite_de_numero_sorteado, numero_secreto);
-
-                            switch (comparacao_entre_numeros) {
-                                case -1:
-                                    System.out.println();
-                                    System.out.println("O número é MAIOR QUE " + palpite_de_numero_sorteado);
-                                    break;
-                                case 1:
-                                    System.out.println();
-                                    System.out.println("O número é MENOR QUE: " + palpite_de_numero_sorteado);
-                                    break;
-                                case 0:
-                                    System.out.println();
-                                    System.out.println("Parábens!!");
-                                    System.out.println("Você acertou o número!!");
-                                    System.out.println("Número Sorteado pelo Sistema: " + numero_secreto);
-                                    System.out.println("Número de Tentativas: " +tentativas);
+                            if (palpite_de_numero_sorteado < numero_secreto){
+                                System.out.println("O número secreto é MAIOR QUE: " + palpite_de_numero_sorteado);
+                            } else if (palpite_de_numero_sorteado > numero_secreto) {
+                                System.out.println("O número secreto é MENOR QUE: " + palpite_de_numero_sorteado);
+                            } else {
+                                System.out.println("Parabéns!!\n Você conseguiu advinhar o número secreto =");
+                                System.out.println("Número sorteado: " + numero_secreto);
+                                System.out.println("Quantidade de palpites feitos pelo jogador: " + tentativas);
                             }
                         }
 

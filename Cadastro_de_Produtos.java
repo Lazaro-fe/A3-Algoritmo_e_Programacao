@@ -5,19 +5,19 @@ public class Cadastro_de_Produtos {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Está definindo a quantidade de produtos que devem ser armazenados no mercado do seu Zé
+        // Está definindo a quantidade de produtos que devem ser armazenados no mercado do seu Zé */
         int armazenamento_do_mercado_do_seu_ze = 10;
-        // Será armazenado nessa variável a quantidade de produtos cadastrados
+        // Será armazenado nessa variável a quantidade de produtos cadastrados */
         int quantidade_de_produtos_do_mercadinho = 0;
 
-        // Utlizando vetores para armazenar o nome de produtos cadastrados
+        // Utlizando vetores para armazenar o nome de produtos cadastrados */
         String[] nome_dos_produtos = new String[armazenamento_do_mercado_do_seu_ze];
-        // Utilizando vetores para armazenar a quantidade de produtos em estoque no vetor
+        // Utilizando vetores para armazenar a quantidade de produtos em estoque no vetor */
         int[] quantidade_em_estoque = new int[armazenamento_do_mercado_do_seu_ze];
-        // Utilizando vetores para armazenar os precos dos produtos digitados
+        // Utilizando vetores para armazenar os precos dos produtos digitados */
         double[] preco_dos_produtos = new double[armazenamento_do_mercado_do_seu_ze];
 
-        // 
+        //* Essa variável será usada para guardar a opção do menu escolhida pelo usuário */
         int opcao_menu_mercadinho;
 
         while (true) {
@@ -32,7 +32,7 @@ public class Cadastro_de_Produtos {
             System.out.print("Digite a opção desejada : ");
             opcao_menu_mercadinho = sc.nextInt();
 
-            sc.nextLine(); // Limpando Buffer
+            sc.nextLine(); //* Limpando Buffer */
 
             switch (opcao_menu_mercadinho) {
                 case 1: // INCLUIR NOVO PRODUTO
@@ -51,14 +51,18 @@ public class Cadastro_de_Produtos {
 
                     System.out.print("Quanto custa o produto no mercadinho: " );
                     preco_dos_produtos[quantidade_de_produtos_do_mercadinho] = sc.nextDouble();
+                    sc.nextLine();
 
+                    //* Armazena um produto cadastrado */
                     quantidade_de_produtos_do_mercadinho++;
+                    //* Tra um retorno ao usuário de que o produto foi cadastrado! */
                     System.out.println("Produto Cadastrado com Sucesso!!");
                     break;
                 case 2: // CONSULTADO PRODUTO
 
                     if (quantidade_de_produtos_do_mercadinho == 0) {
                         System.out.println("Nenhum produto foi Cadastrado no Mercadinho!");
+                        continue;
                     }
 
                     System.out.print("Digite o nome do produto que deseja consultar: ");
@@ -83,6 +87,7 @@ public class Cadastro_de_Produtos {
                     
                     if (quantidade_de_produtos_do_mercadinho == 0) {
                         System.out.println("Nenhum produto foi cadastrado!");
+                        continue;
                     }
 
                     System.out.print("Digite o nome do produto que deseja alterar: ");
@@ -120,6 +125,7 @@ public class Cadastro_de_Produtos {
 
                     if (quantidade_de_produtos_do_mercadinho == 0) {
                         System.out.println("Nenhum produto foi cadastrado no mercadinho!");
+                        continue;
                     }
 
                     System.out.println("Digite o nome do produto que deseja remover");
@@ -155,7 +161,7 @@ public class Cadastro_de_Produtos {
 
                     if (quantidade_de_produtos_do_mercadinho == 0) {
                         System.out.println("Nenhum Produto cadastrado!");
-                        break;
+                        continue;
                     }
 
                     System.out.println("\n===== DADOS DOS PRODUTOS CADASTRADOS =====");
