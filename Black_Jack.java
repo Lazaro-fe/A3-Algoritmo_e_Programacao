@@ -168,6 +168,7 @@ public class Black_Jack {
                     System.out.println("============================================================================================");
                     System.out.println("5° - Turno do Usuário: ");
                     System.out.println("- Você pode pedir cartas até decidir parar ou até estourar (Ultrapassar 21 pontos).");
+                    System.out.println("============================================================================================");
                     System.out.println("6° - Turno do Adversário: ");
                     System.out.println("- Se o jogador estourar, o adversário vence direto.\n- Se não, a carta oculta dele é revelado.\n- Ele é obrigado a comprar cartas se tiver 16 ou menos.\n - Ele é obrigado a parar se atingir 17 ou mais.");
                     System.out.println("============================================================================================");
