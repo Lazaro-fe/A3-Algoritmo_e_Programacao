@@ -4,20 +4,26 @@ import java.util.Scanner;
 
 public class BlackJack {
     public static void main(String[] args){
+
+        //* Inicializa o Scanner para ler as respostas do jogador no console */
         Scanner input = new Scanner(System.in);
+        //* Inicializa o Random para gerar números aleatórios (usado no embaralhamento) */
         Random random = new Random();
         
+        //* Arrays contendo as faces das cartas, seus valores em pontos e os naipes disponíveis. */
         String[] valoresCartas = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         int[] pontosCartas     = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
         String[] valoresNaipes = {"Copas", "Espadas", "Ouros", "Paus"};
         
-        // Matriz de cartas: coluna 0 = valor, coluna 1 = naipe
+        //* Matriz para o baralho completo. São 52 linhas (cartas) e 2 colunas (0 = Face/Valor, 1 = Naipe) */
         String[][] pilhaCompra = new String[52][2];
-        // Matriz que guardarará as cartas que o usuário e o cpu irão comprar durante o jogo 
+
+        //* Matrizes para as mãos dos jogadores. O tamanho 13 é um limite seguro,
+        // pois é impossível comprar 13 cartas no Blackjack sem estourar 21 pontos. */
         String[][] usuario     = new String[13][2];
         String[][] cpu  = new String[13][2];
 
-        //Variaveis para guardar os placares e quantidade de rodadas
+        //* Variaveis para guardar os placares e quantidade de rodadas */
         int placarUsuario = 0;    
         int placarCpu = 0;
         int rodadaAtual = 1;
@@ -26,12 +32,12 @@ public class BlackJack {
         System.out.print("Informe quantas rodadas serao necessarias para declarar um vencedor: ");
         int maximo = input.nextInt();
 
-        // LOOP PRINCIPAL: So para quando um dos jogadores atingir o maximo de vitórias
+        //* Continua rodando enquanto NENHUM dos dois tiver atingido a pontuação máxima */
         while (placarUsuario < maximo && placarCpu < maximo) {
             System.out.println("\n//--------------------//");
             System.out.println(" Rodada  " + rodadaAtual);
             
-            //Mostra a pontuação dos jogadores e a quantidade de cartas em mãos
+            //* Variáveis que resetam a cada rodada (Pontuação da mão, quantidade de cartas e o índice do topo do baralho) */
             int somaUsuario = 0;    
             int somaCpu = 0;  
             int qtdUsuario = 0;      
@@ -40,14 +46,16 @@ public class BlackJack {
 
             //Montagem da pilha do baralho com as 52 cartas
             int posicaoPilha = 0;
+            //* O primeiro loop passa pelos 13 valores (A, 2, 3...) */
             for (int c = 0; c < 13; c++) {
-                // Para cada face, combina com os 4 naipes
+                //* O segundo loop passa pelos 4 naipes para combinar com o valor atual */
                 for (int n = 0; n < 4; n++) {
                     pilhaCompra[posicaoPilha][0] = valoresCartas[c]; 
                     pilhaCompra[posicaoPilha][1] = valoresNaipes[n]; 
                     posicaoPilha++; 
                 }
             }
+            
             //Embaralhar as cartas usando:(ALGORITMO FISHER-YATES)
             for (int k = 51; k > 0; k--) {
                 // Sorteia um número aleatório
